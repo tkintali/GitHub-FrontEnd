@@ -7,16 +7,19 @@
 </head>
 
 <body>
-    <div class="centered">
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-                <mat-label>GitHub Username</mat-label>
-                <input matInput #message maxlength="256" id="userID" placeholder="Ex. caferacer98">
-                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-            </mat-form-field>
-            <button mat-raised-button color="accent" id="search" (click)="openDialog()">Search</button>
-        </form>
+    <div class="header">
+        <img src="assets/img/GitHub Logo.svg" alt="GitHub Logo" style="height:120px;">
+        <div class="header-search" style="float: right;">
+            <form class="example-form">
+                <mat-form-field class="search-form" appearance="outline">
+                    <mat-label>GitHub Username</mat-label>
+                    <input matInput id="userID" placeholder="Ex. caferacer98">
+                    <button mat-raised-button color="accent" id="search" style="float: right;">Search</button>
+                </mat-form-field>
+            </form>
+        </div>
     </div>
+    <!--Script that allows for the enter key to query a search-->
     <script>
         var input = document.getElementById("userID");
         input.addEventListener("keyup", function(event) {

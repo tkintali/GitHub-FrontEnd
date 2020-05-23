@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
+import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserDataService {
 
-  user: User[] = [];
-
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) {
+  }
 
   //API: GET Profile through Username
-  getProfiel(username: string): User{
-    return this.user
-    .filter(user => user.login === username)
-    .pop();
+  getProfile(userID: string): Observable<User> {
+    return this.api.render(userID);
   }
 }
